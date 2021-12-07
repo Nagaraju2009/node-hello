@@ -23,7 +23,7 @@ jobs:
       uses: hands-lab/push-ecr-action@v1.1
       with:
         # image name
-        image: myapp
+        image: myapp-feature-a
         # AWS Access Key ID
         aws-access-key-id: ${{ secrets.awsaccesskeyid }}
         # AWS Secret Access Key
