@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: myapp
+  name: myapp-feature-c
   labels:
-    app: myapp
+    app: myapp-feature-c
 spec:
   selector:
-    app: myapp
+    app: myapp-feature-c
   type: LoadBalancer
   ports:
   - protocol: TCP
