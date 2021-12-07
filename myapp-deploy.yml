@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: myapp-feature-c
   labels:
-    app: myapp
+    app: myapp-feature-c
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myapp
+      app: myapp-feature-c
   template:
     metadata:
       labels:
-        app: myapp
+        app: myapp-feature-c
     spec:
       containers:
-      - name: myapp
-        image: 366449471548.dkr.ecr.ap-south-1.amazonaws.com/myapp:latest
+      - name: myapp-feature-c
+        image: 366449471548.dkr.ecr.ap-south-1.amazonaws.com/myapp-feature-c:latest
         ports:
         - containerPort: 3000
       imagePullSecrets:
