@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ feature-c ]
   pull_request:
-    branches: [ master ]
+    branches: [ feature-c ]
 
 jobs:
 
@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag myapp
+      run: docker build . --file Dockerfile --tag myapp-feature-c
       
     - name: Push AWS ECR
       # You may pin to the exact commit or the version.
@@ -23,7 +23,7 @@ jobs:
       uses: hands-lab/push-ecr-action@v1.1
       with:
         # image name
-        image: myapp
+        image: myapp-feature-c
         # AWS Access Key ID
         aws-access-key-id: ${{ secrets.awsaccesskeyid }}
         # AWS Secret Access Key
