@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+  labels:
+    app: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: 366449471548.dkr.ecr.ap-south-1.amazonaws.com/myapp:latest
+        ports:
+        - containerPort: 3000
+      imagePullSecrets:
+      - name: aws-registry
