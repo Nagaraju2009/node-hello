@@ -1,15 +1,15 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: myapp
+  name: myapp-feature-a
   labels:
-    app: myapp
+    app: myapp-feature-a
 spec:
   selector:
-    app: myapp
+    app: myapp-feature-a
   type: LoadBalancer
   ports:
   - protocol: TCP
     port: 3000
     targetPort: 80
-    name: application
+    name: myapp-feature-a
