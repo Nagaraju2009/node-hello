@@ -15,4 +15,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag myapp
+      
+    - name: Push AWS ECR
+      # You may pin to the exact commit or the version.
+      # uses: hands-lab/push-ecr-action@18f19e41550f632ff0d8ce224a3ffd1e552d3598
+      uses: hands-lab/push-ecr-action@v1.1
+      with:
+        # image name
+        image: myapp
+        # AWS Access Key ID
+        aws-access-key-id: ${{ secrets.awsaccesskeyid }}
+        # AWS Secret Access Key
+        aws-secret-access-key: ${{ secrets.awssecretkeyid }}
+        # AWS Region
+        aws-region: ap-south-a
+        # AWS Account ID
+        aws-account-id: ${{ secrets.awsaccountid }}
